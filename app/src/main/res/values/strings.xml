@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">BlueCalc</string>
+    <string name="subtitle">Two-number calculator</string>
+    <string name="calculator_icon_description">Calculator icon</string>
+    <string name="first_number">First number</string>
+    <string name="second_number">Second number</string>
+    <string name="operation_section_title">Choose an operation</string>
+    <string name="add">Add</string>
+    <string name="subtract">Subtract</string>
+    <string name="multiply">Multiply</string>
+    <string name="divide">Divide</string>
+    <string name="clear">Clear</string>
+    <string name="result_placeholder">Your result will appear here</string>
+    <string name="result_default_symbol">--</string>
+    <string name="result_expression">%1$s %2$s %3$s = %4$s</string>
+    <string name="selected_operation_description">%1$s selected</string>
+    <string name="error_empty_first">Please enter the first number</string>
+    <string name="error_empty_second">Please enter the second number</string>
+    <string name="error_invalid_number">Please enter a valid number</string>
+    <string name="error_divide_by_zero">Cannot divide by zero</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="clean_primary">#2457A6</color>
+    <color name="clean_primary_dark">#163B76</color>
+    <color name="clean_primary_container">#D9E6FF</color>
+    <color name="clean_on_primary">#FFFFFFFF</color>
+    <color name="clean_background">#F5F8FC</color>
+    <color name="clean_surface">#FFFFFFFF</color>
+    <color name="clean_result_background">#EAF1FB</color>
+    <color name="clean_text">#172033</color>
+    <color name="clean_text_secondary">#59657A</color>
+    <color name="clean_error">#B3261E</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
