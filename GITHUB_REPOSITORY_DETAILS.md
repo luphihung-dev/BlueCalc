@@ -2,12 +2,12 @@
 
 Preferred option:
 
-CleanCalc - COMP1786 Exercise 1 Android two-number calculator with input validation and themed resources.
+BlueCalc - COMP1786 Exercise 1 Android two-number calculator with input validation and themed resources.
 
 Alternative options:
 
 - Android two-number calculator app for COMP1786 Exercise 1.
-- CleanCalc: simple Android calculator with Add, Subtract, Multiply, Divide and validation.
+- BlueCalc: simple Android calculator with Add, Subtract, Multiply, Divide and validation.
 
 ## Suggested GitHub Topics
 

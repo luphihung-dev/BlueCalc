@@ -1,8 +1,8 @@
-# CleanCalc - COMP1786 Exercise 1
+# BlueCalc - COMP1786 Exercise 1
 
 ## Overview
 
-CleanCalc is a simple Android calculator application built for COMP1786 Mobile Application Design and Development, Exercise 1. The app calculates between two numbers at a time and supports Add, Subtract, Multiply and Divide operations.
+BlueCalc is a simple Android calculator application built for COMP1786 Mobile Application Design and Development, Exercise 1. It performs calculations between two numbers at a time and supports the four required operations: Add, Subtract, Multiply and Divide.
 
 ## Coursework Requirements Covered
 
@@ -20,22 +20,22 @@ CleanCalc is a simple Android calculator application built for COMP1786 Mobile A
 
 - First number input
 - Second number input
-- Four operation buttons: Add, Subtract, Multiply and Divide
+- Add, Subtract, Multiply and Divide buttons
 - Clear/reset button
 - Result display
-- Visible validation messages for invalid input
+- Visible validation messages
 - Themed UI using Android resources and a Compose Material theme
 
 ## Validation
 
-The app checks for:
+BlueCalc validates user input before performing a calculation:
 
 - Empty first number
 - Empty second number
 - Invalid number format
 - Division by zero
 
-Invalid input is handled safely with visible error messages, so the app does not crash or display an incorrect result.
+Validation prevents crashes and prevents incorrect results from being displayed.
 
 ## Technologies Used
 
@@ -48,18 +48,35 @@ Invalid input is handled safely with visible error messages, so the app does not
 
 ## Project Structure
 
-- `MainActivity.kt`: contains the main Compose calculator screen, input handling, operation button handling, result display and clear/reset behaviour.
-- `CalculatorEngine.kt`: contains the calculator operations, calculation logic and result number formatting.
+- `MainActivity.kt`: defines the Compose calculator screen, input fields, operation buttons, validation display, result display and clear/reset behaviour.
+- `CalculatorEngine.kt`: contains the calculator operation enum, calculation logic and result formatting.
 - `Theme.kt`: defines the Compose Material colour scheme using Android colour resources.
 - `Type.kt`: defines Compose typography used by the app theme.
-- `app/src/main/res/values/strings.xml`: stores user-facing text, labels and validation messages.
-- `app/src/main/res/values/colors.xml`: stores app colours used by the theme and UI.
-- `app/src/main/res/values/dimens.xml`: stores spacing, sizing, corner radius and elevation values.
-- `app/src/main/res/values/themes.xml`: defines the Android application theme.
-- `app/src/main/res/drawable/ic_calculator.xml`: provides the calculator icon used in the UI.
-- `app/src/main/res/drawable/` and `app/src/main/res/mipmap-*`: contain drawable and launcher icon resources.
-- `CalculatorEngineTest.kt`: contains JUnit tests for calculator operations, number formatting, decimal calculations, negative numbers and division by zero.
+- `strings.xml`: stores app text, labels, result messages and validation messages.
+- `colors.xml`: stores app colours used by the theme and interface.
+- `dimens.xml`: stores spacing, sizing, corner radius and elevation values.
+- `themes.xml`: defines the Android application theme.
+- `ic_calculator.xml`: provides the calculator icon used in the UI.
+- `CalculatorEngineTest.kt`: contains local JUnit tests for calculator logic, formatting, decimal values, negative values and division by zero.
 - `BlueCalcInstrumentedTest.kt`: contains the Android instrumented test class.
+
+## Build and Test
+
+For macOS/Linux:
+
+```bash
+./gradlew assembleDebug
+./gradlew testDebugUnitTest
+```
+
+For Windows PowerShell:
+
+```powershell
+.\gradlew.bat assembleDebug
+.\gradlew.bat testDebugUnitTest
+```
+
+If `JAVA_HOME` is not configured, use the JDK bundled with Android Studio or configure `JAVA_HOME` before running Gradle from the terminal.
 
 ## How to Run
 
@@ -71,17 +88,17 @@ Invalid input is handled safely with visible error messages, so the app does not
 
 ## Manual Testing Checklist
 
-- [ ] Add calculation
-- [ ] Subtract calculation
-- [ ] Multiply calculation
-- [ ] Divide calculation
-- [ ] Decimal number calculation
-- [ ] Negative number calculation
-- [ ] Empty first number validation
-- [ ] Empty second number validation
-- [ ] Invalid number validation
-- [ ] Division by zero validation
-- [ ] Clear/reset button
+- [ ] Add calculation: `8` + `4` should display `12`.
+- [ ] Subtract calculation: `8` - `4` should display `4`.
+- [ ] Multiply calculation: `8` x `4` should display `32`.
+- [ ] Divide calculation: `8` / `4` should display `2`.
+- [ ] Decimal calculation: `2.5` + `1.25` should display `3.75`.
+- [ ] Negative number calculation: `-4` x `2` should display `-8`.
+- [ ] Empty first number validation: leave the first field empty and choose an operation; the app should show a first-number error.
+- [ ] Empty second number validation: leave the second field empty and choose an operation; the app should show a second-number error.
+- [ ] Invalid number validation: enter invalid text such as `abc`; the app should show a valid-number error.
+- [ ] Division by zero validation: enter `10` / `0`; the app should show a divide-by-zero error.
+- [ ] Clear/reset button: after entering values or seeing a result, tap Clear; inputs, errors, selected operation and result should reset.
 
 ## Logbook Evidence
 
@@ -109,4 +126,4 @@ Suggested code snippets:
 
 ## Academic Note
 
-This repository is intended as supporting evidence for COMP1786 coursework. The final assessed submission should follow the official coursework instructions, including the Logbook PDF and required app/supporting evidence files.
+This repository is intended to support a COMP1786 coursework submission. The final assessed submission should follow the official coursework instructions, including the required Logbook PDF and any app or supporting evidence files requested by the module.
