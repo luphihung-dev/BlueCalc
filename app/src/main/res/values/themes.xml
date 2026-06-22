@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.ProjectExercise1" parent="android:style/Theme.Material.Light.NoActionBar">
+    <style name="Theme.BlueCalc" parent="android:style/Theme.Material.Light.NoActionBar">
         <item name="android:fontFamily">sans</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="android:statusBarColor">@color/clean_background</item>
-        <item name="android:navigationBarColor">@color/clean_background</item>
-        <item name="android:colorAccent">@color/clean_primary</item>
+        <item name="android:statusBarColor">@color/bluecalc_background</item>
+        <item name="android:navigationBarColor">@color/bluecalc_background</item>
+        <item name="android:colorAccent">@color/bluecalc_primary</item>
     </style>
 </resources>

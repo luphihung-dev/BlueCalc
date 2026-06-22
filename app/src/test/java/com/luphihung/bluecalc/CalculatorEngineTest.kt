@@ -1,4 +1,4 @@
-package com.example.project_exercise_1
+package com.luphihung.bluecalc
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertThrows

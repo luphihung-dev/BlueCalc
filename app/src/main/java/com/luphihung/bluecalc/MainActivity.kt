@@ -1,4 +1,4 @@
-package com.example.project_exercise_1
+package com.luphihung.bluecalc
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -50,22 +50,22 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.project_exercise_1.ui.theme.ProjectExercise1Theme
+import com.luphihung.bluecalc.ui.theme.BlueCalcTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            ProjectExercise1Theme {
-                CleanCalcApp()
+            BlueCalcTheme {
+                BlueCalcApp()
             }
         }
     }
 }
 
 @Composable
-private fun CleanCalcApp() {
+private fun BlueCalcApp() {
     var firstInput by remember { mutableStateOf("") }
     var secondInput by remember { mutableStateOf("") }
     var firstError by remember { mutableStateOf<String?>(null) }
@@ -81,9 +81,9 @@ private fun CleanCalcApp() {
     val resultExpressionFormat = stringResource(R.string.result_expression)
     val spacingLarge = dimensionResource(R.dimen.spacing_large)
     val spacingMedium = dimensionResource(R.dimen.spacing_medium)
-    val backgroundColor = colorResource(R.color.clean_background)
+    val backgroundColor = colorResource(R.color.bluecalc_background)
 
-    fun clearAll() {
+    fun clearCalculator() {
         firstInput = ""
         secondInput = ""
         firstError = null
@@ -93,19 +93,19 @@ private fun CleanCalcApp() {
         resultText = null
     }
 
-    fun calculate(operation: CalculatorOperation) {
+    fun handleOperationClick(operation: CalculatorOperation) {
         firstError = null
         secondError = null
         selectedOperation = null
         expression = null
         resultText = null
 
-        val firstValue = validateInput(
+        val firstValue = parseOperandInput(
             value = firstInput,
             emptyMessage = emptyFirstMessage,
             invalidMessage = invalidNumberMessage
         ) { firstError = it }
-        val secondValue = validateInput(
+        val secondValue = parseOperandInput(
             value = secondInput,
             emptyMessage = emptySecondMessage,
             invalidMessage = invalidNumberMessage
@@ -141,8 +141,8 @@ private fun CleanCalcApp() {
                 .padding(spacingLarge),
             verticalArrangement = Arrangement.spacedBy(spacingLarge)
         ) {
-            Header()
-            InputCard(
+            AppHeader()
+            OperandInputCard(
                 firstInput = firstInput,
                 secondInput = secondInput,
                 firstError = firstError,
@@ -156,16 +156,16 @@ private fun CleanCalcApp() {
                     secondError = null
                 }
             )
-            OperationSection(
+            OperationGrid(
                 selectedOperation = selectedOperation,
-                onOperationClick = ::calculate
+                onOperationClick = ::handleOperationClick
             )
-            ResultCard(
+            CalculationResultCard(
                 expression = expression,
                 resultText = resultText
             )
             TextButton(
-                onClick = ::clearAll,
+                onClick = ::clearCalculator,
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .semantics { contentDescription = "Clear calculator inputs and result" },
@@ -181,10 +181,10 @@ private fun CleanCalcApp() {
 }
 
 @Composable
-private fun Header() {
+private fun AppHeader() {
     val spacingMedium = dimensionResource(R.dimen.spacing_medium)
     val iconSize = dimensionResource(R.dimen.icon_large)
-    val iconBackground = colorResource(R.color.clean_primary_container)
+    val iconBackground = colorResource(R.color.bluecalc_primary_container)
 
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -221,7 +221,7 @@ private fun Header() {
 }
 
 @Composable
-private fun InputCard(
+private fun OperandInputCard(
     firstInput: String,
     secondInput: String,
     firstError: String?,
@@ -229,7 +229,7 @@ private fun InputCard(
     onFirstInputChanged: (String) -> Unit,
     onSecondInputChanged: (String) -> Unit
 ) {
-    RoundedCard {
+    SectionCard {
         Column(verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.spacing_medium))) {
             NumberInput(
                 value = firstInput,
@@ -271,7 +271,7 @@ private fun NumberInput(
 }
 
 @Composable
-private fun OperationSection(
+private fun OperationGrid(
     selectedOperation: CalculatorOperation?,
     onOperationClick: (CalculatorOperation) -> Unit
 ) {
@@ -355,11 +355,11 @@ private fun OperationButton(
 }
 
 @Composable
-private fun ResultCard(
+private fun CalculationResultCard(
     expression: String?,
     resultText: String?
 ) {
-    RoundedCard(containerColor = colorResource(R.color.clean_result_background)) {
+    SectionCard(containerColor = colorResource(R.color.bluecalc_result_background)) {
         Column(
             modifier = Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -383,7 +383,7 @@ private fun ResultCard(
 }
 
 @Composable
-private fun RoundedCard(
+private fun SectionCard(
     modifier: Modifier = Modifier,
     containerColor: Color = MaterialTheme.colorScheme.surface,
     content: @Composable () -> Unit
@@ -400,7 +400,7 @@ private fun RoundedCard(
     }
 }
 
-private fun validateInput(
+private fun parseOperandInput(
     value: String,
     emptyMessage: String,
     invalidMessage: String,
@@ -420,8 +420,8 @@ private fun validateInput(
 
 @Preview(showBackground = true)
 @Composable
-private fun CleanCalcPreview() {
-    ProjectExercise1Theme {
-        CleanCalcApp()
+private fun BlueCalcPreview() {
+    BlueCalcTheme {
+        BlueCalcApp()
     }
 }

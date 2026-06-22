@@ -1,4 +1,4 @@
-package com.example.project_exercise_1
+package com.luphihung.bluecalc
 
 import androidx.annotation.StringRes
 import java.text.DecimalFormat

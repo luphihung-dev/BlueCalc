@@ -1,4 +1,4 @@
-package com.example.project_exercise_1.ui.theme
+package com.luphihung.bluecalc.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
