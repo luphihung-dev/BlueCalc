@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BlueCalc</string>
+    <string name="app_name">CleanCalc</string>
     <string name="subtitle">Two-number calculator</string>
     <string name="calculator_icon_description">Calculator icon</string>
     <string name="first_number">First number</string>
